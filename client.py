@@ -6,7 +6,7 @@ if __name__ == "__main__":
     # recieves input from client which contains the IP address, port number of the server, and a message to send to that server
     target_IP = input("Please enter the target ip address: ")
     target_port = int(input("Please enter the target port number of the server: "))
-    message = input("What is your message?")
+    message = input("What is your message? ")
 
     # creates the socket for our communication
     myTCPSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
