@@ -4,8 +4,10 @@ import socket
 #creates a socket
 myTCPSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+#asks for which port to connect to 
+port = int(input("What port would you like to connect to? "))
 #connects the socket to a specific port on the computer
-myTCPSocket.bind(('localhost', 1024))
+myTCPSocket.bind(('localhost', port))
 
 #waits for a connection to be initiated 
 myTCPSocket.listen(5)
@@ -18,6 +20,12 @@ while True:
 
     #gets the message, have to use decode to get rid of the 'b'
     myData = str(incomingSocket.recv(20).decode())
+
+    #once the client ends it on their side it will send empty messages to the server
+    if myData == '':
+        break
+
+
     print("UNCHANGED: ", myData)
 
     #changes the message to all capital letters
