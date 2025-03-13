@@ -20,8 +20,8 @@ if __name__ == "__main__":
         myTCPSocket.send(bytearray(str(message), encoding='utf-8'))
         
         #recieves and prints the response
-        response = myTCPSocket.recv(20)
-        print("Returned message: ", message)
+        response = myTCPSocket.recv(20).decode()
+        print("Returned message: ", response)
 
         #checks to see if the client would want to continue
         if input("Would you like to change your message? (Y/n)").lower() == 'y':
