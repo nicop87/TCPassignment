@@ -5,9 +5,10 @@ import socket
 myTCPSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 #asks for which port to connect to 
+target_IP = input("What ip address would you like to connect to? ")
 port = int(input("What port would you like to connect to? "))
 #connects the socket to a specific port on the computer
-myTCPSocket.bind(('localhost', port))
+myTCPSocket.bind((target_IP, port))
 
 #waits for a connection to be initiated 
 myTCPSocket.listen(5)
