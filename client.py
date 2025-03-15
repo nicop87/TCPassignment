@@ -20,7 +20,7 @@ if __name__ == "__main__":
         myTCPSocket.send(bytearray(str(message), encoding='utf-8'))
         
         #recieves and prints the response
-        response = myTCPSocket.recv(20).decode()
+        response = myTCPSocket.recv(500).decode()
         print("Returned message: ", response)
 
         #checks to see if the client would want to continue
