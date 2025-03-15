@@ -20,7 +20,7 @@ incomingSocket, incomingAddress = myTCPSocket.accept()
 while True:
 
     #gets the message, have to use decode to get rid of the 'b'
-    myData = str(incomingSocket.recv(20).decode())
+    myData = str(incomingSocket.recv(500).decode())
 
     #once the client ends it on their side it will send empty messages to the server
     if myData == '':
