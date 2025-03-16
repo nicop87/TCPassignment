@@ -11,8 +11,28 @@ if __name__ == "__main__":
     # creates the socket for our communication
     myTCPSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    #connects to the server
-    myTCPSocket.connect((target_IP, target_port))
+    #attempts to connect to the server
+    while True:
+        try:
+            myTCPSocket.connect((target_IP, target_port))
+            break
+
+        #if the IP address fails 
+        except socket.gaierror:
+            print("Sorry that IP address was invaild")
+            target_IP = input("Please enter the target ip address: ")
+
+        #if the port or connection fails
+        except socket.error:
+            print("Sorry the socket connection failed")
+            target_port = int(input("Please enter the target port number of the server: "))
+        
+        #if there is a general error with connecting
+        except:
+            print("Another error has occurred please try again")
+            target_IP = input("Please enter the target ip address: ")
+            target_port = int(input("Please enter the target port number of the server: "))
+            message = input("What is your message? ")
 
     #loop to send and recieve the messages 
     while True:
